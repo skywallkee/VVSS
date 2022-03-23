@@ -12,9 +12,14 @@ public class InventoryService {
         this.repo =repo;
     }
 
-    public void addInhousePart(String name, double price, int inStock, int min, int  max, int partDynamicValue){
-        InhousePart inhousePart = new InhousePart(repo.getAutoPartId(), name, price, inStock, min, max, partDynamicValue);
-        repo.addPart(inhousePart);
+    public void addInhousePart(String name, double price, int inStock, int min, int  max, int partDynamicValue) throws ServiceException {
+        String errorMessage = Part.isValidPart(name, price, inStock, min, max, "");
+        if(errorMessage.length() == 0) {
+            InhousePart inhousePart = new InhousePart(repo.getAutoPartId(), name, price, inStock, min, max, partDynamicValue);
+            repo.addPart(inhousePart);
+        } else {
+            throw new ServiceException(errorMessage);
+        }
     }
 
     public void addOutsourcePart(String name, double price, int inStock, int min, int  max, String partDynamicValue){
@@ -66,4 +71,9 @@ public class InventoryService {
         repo.deleteProduct(product);
     }
 
+    public class ServiceException extends Exception {
+        public ServiceException(String message){
+            super(message);
+        }
+    }
 }

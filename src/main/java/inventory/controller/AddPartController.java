@@ -176,6 +176,13 @@ public class AddPartController implements Initializable, Controller {
             alert.setHeaderText("Error!");
             alert.setContentText("Form contains blank field.");
             alert.showAndWait();
+        } catch (InventoryService.ServiceException e) {
+            System.out.println("Service Exception");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Error Adding Part!");
+            alert.setHeaderText("Error!");
+            alert.setContentText("Part invalid.");
+            alert.showAndWait();
         }
     }
 
