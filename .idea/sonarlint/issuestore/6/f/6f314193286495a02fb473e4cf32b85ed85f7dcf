@@ -1,0 +1,7 @@
+
+B
+java:S11255"'Remove the unnecessary boolean literal.(çÛÞ¬ùÿÿÿÿ
+B
+java:S11258"'Remove the unnecessary boolean literal.(ÐÏŸžþÿÿÿÿ
+R
+java:S25898"7Remove this expression which always evaluates to "true"(ÐÏŸžþÿÿÿÿ
