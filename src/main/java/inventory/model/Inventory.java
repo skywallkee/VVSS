@@ -54,8 +54,7 @@ public class Inventory {
                 return product;
         }
         if(isFound == false) {
-            Product product = new Product(0, null, 0.0, 0, 0, 0, null);
-            return product;
+            return new Product(0, null, 0.0, 0, 0, 0, null);
         }
         return product;
     }
