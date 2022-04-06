@@ -20,7 +20,6 @@ class InventoryServiceTest {
         inventoryService = new InventoryService(inventoryRepository);
     }
 
-    @Tag("price tests")
     @DisplayName("parametrized test for invalid price value")
     @ParameterizedTest
     @ValueSource(doubles = { 0.00 })
@@ -34,21 +33,6 @@ class InventoryServiceTest {
         }
     }
 
-    @Tag("price tests")
-    @DisplayName("parametrized test for invalid price type")
-    @ParameterizedTest
-    @ValueSource(strings = { "cinci" })
-    void invalidPriceTypeAddInhousePart(Double price) {
-        try{
-            inventoryService.addInhousePart("Produs2", price, 5, 1, 10, 1);
-            fail();
-        }
-        catch(Exception typeException){
-            assertTrue(true);
-        }
-    }
-
-    @Tag("price tests")
     @DisplayName("parametrized test for valid price")
     @ParameterizedTest
     @ValueSource(doubles = { 0.01 })
